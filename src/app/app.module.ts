@@ -26,6 +26,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
 import { ProductoListaComponent } from './pages/producto-lista/producto-lista.component';
+import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ProductoListaComponent } from './pages/producto-lista/producto-lista.co
     UserDashboardComponent,
     AgregarProductoComponent,
     EditarProductoComponent,
-    ProductoListaComponent
+    ProductoListaComponent,
+    ComprarProductoComponent
   ],
   imports: [
     BrowserModule,

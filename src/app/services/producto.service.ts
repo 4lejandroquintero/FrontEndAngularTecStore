@@ -24,6 +24,10 @@ export class ProductoService {
   return this.clienteHttp.get<Producto>(`${baserUrl}/inventario-app/productos/${id}`)
  }
 
+ obtenerPorudctoPorCodigo(codigo: number){
+  return this.clienteHttp.get<Producto>(`${baserUrl}/inventario-app/productos/${codigo}`)
+ }
+
  guardarrProducto(id: number, producto: Producto): Observable<Object>{
   return this.clienteHttp.put(`${baserUrl}/inventario-app/productos/${id}`, producto);
  }

@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
 
   public user = {
     username : '',
+    tipousuario : '',
     password : '',
     nombre : '',
     apellido : '',
@@ -32,6 +33,7 @@ export class SignupComponent implements OnInit {
         verticalPosition : 'top',
         horizontalPosition : 'right'
       });
+  
       return;
     }
 
@@ -40,6 +42,7 @@ export class SignupComponent implements OnInit {
         console.log(data);
         Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
         this.user.username=('');
+        this.user.tipousuario=('');
         this.user.password=('');
         this.user.nombre=('');
         this.user.apellido=('');

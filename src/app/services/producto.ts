@@ -1,7 +1,7 @@
 export class Producto {
   idProducto!: number;
   descripcion!: string;
-  codigo!: string;
+  codigo!: number;
   precio!: number;
   existencia!: number;
 }

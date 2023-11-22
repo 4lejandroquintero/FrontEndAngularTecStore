@@ -32,10 +32,15 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" style="margin-right: 50px"
             *ngIf="isLoggedIn"
-            (click)="logout()"
+            [routerLink]="'/signup'"
             nav-link="true"
             >Crear Admin</a>
           </li>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button (click)="buscarCodigo(producto.codigo)" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true"></a>
           </li>
@@ -64,7 +69,7 @@
   </a>
   <a
     *ngIf="isLoggedIn"
-    [routerLink]="'/'"
+    (click)="logout()"
     style="margin-right: 50px"
     mat-icon-button
     class="example-icon favorite-icon"
@@ -82,5 +87,14 @@
     aria-label="Example icon-button with heart icon"
   >
     {{ user.username }}
+  </button>
+  <button
+    [routerLink]="'/'"
+    mat-button
+    style="margin-right: 10px"
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    X
   </button>
 </mat-toolbar>

@@ -30,6 +30,14 @@ export class ProductoListaComponent {
       this.enrutador.navigate(['editar-producto', id]);
     }
 
+    buscarCodigo(codigo: number){
+      this.enrutador.navigate(['editar-producto', codigo]);
+    }
+
+  comprarProducto(id: number){
+      this.enrutador.navigate(['comprar-producto', id]);
+    }
+
     eliminarProducto(id: number){
       this.productoServicio.eliminarProducto(id).subscribe(
         {
