@@ -39,6 +39,12 @@ export class SignupComponent implements OnInit {
       (data) => {
         console.log(data);
         Swal.fire('Usuario guardado','Usuario registrado con exito en el sistema','success');
+        this.user.username=('');
+        this.user.password=('');
+        this.user.nombre=('');
+        this.user.apellido=('');
+        this.user.email=('');
+        this.user.telefono=('');
       },(error) => {
         console.log(error);
         this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{

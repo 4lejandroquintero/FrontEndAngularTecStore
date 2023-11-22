@@ -1,4 +1,5 @@
-<div class = "bootstrap-wrapper">
+<div class = "box">
+  <span class="borderLine"></span>
   <div class = "container">
     <div class = "row mt20">
       <div class = "col-md-6 offset-md-3">
@@ -19,15 +20,23 @@
               <input [(ngModel)] = "loginData.password" name = "password" required  type="password" matInput placeholder="Digite su contraseña">
               <mat-hint>La contraseña debe ser valida</mat-hint>
             </mat-form-field>
+            <br/>
+            <div class="links">
+              <a class="links" href="#">Recordar Contraseña</a>
+          </div>
 
             <br><br>
-
             <div class = "container text-center">
               <button type = "submit" mat-raised-button color="primary">Iniciar sesión</button>
               <button type="reset" style = "margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
             </div>
+
           </form>
         </mat-card>
+        <div class="row">
+          <button type="button" class="btn btn-secondary  btn-lg">
+              <img src="https://img.icons8.com/color/22/000000/google-logo.png" width="35px"> Sing in Google
+          </button>
       </div>
     </div>
   </div>

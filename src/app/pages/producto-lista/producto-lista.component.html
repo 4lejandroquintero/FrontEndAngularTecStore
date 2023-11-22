@@ -1,17 +1,18 @@
 <div class="container">
 
   <div class="container text-center" style="margin: 30px">
-    <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-    <h3>SISTEMA DE INVENTARIOS</h3>
+
+
+    <h3 style="display: inline-block; color: rgb(219, 22, 22);">SISTEMA DE INVENTARIOS</h3>
   </div>
 
-  <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+
   <table class="table table-striped table-hover align-middle">
     <thead class="table-dark">
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Descripcion</th>
+        <th scope="col">Codigo</th>
         <th scope="col">Precio</th>
         <th scope="col">Existencias</th>
         <th scope="col">Opciones</th>
@@ -21,6 +22,7 @@
       <tr *ngFor="let producto of productos">
         <th scope="row">{{producto.idProducto}}</th>
         <td>{{producto.descripcion}}</td>
+        <td>{{producto.codigo}}</td>
         <td>{{producto.precio}}</td>
         <td>{{producto.existencia}}</td>
         <td class="text-center">

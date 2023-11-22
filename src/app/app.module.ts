@@ -27,6 +27,7 @@ import { AgregarProductoComponent } from './pages/agregar-producto/agregar-produ
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
 import { ProductoListaComponent } from './pages/producto-lista/producto-lista.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
