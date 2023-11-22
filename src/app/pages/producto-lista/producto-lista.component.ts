@@ -12,38 +12,30 @@ export class ProductoListaComponent {
 
   constructor(private productoServicio: ProductoService, private enrutador: Router) {}
 
-    ngOnInit(){
-      //Cargamos los productos
-      this.obtenerProductos();
-    }
-
-    private obtenerProductos(){
-      //Consumir los datos del observable (suscribirnos)
-      this.productoServicio.obtenerProductosLista().subscribe(
-        (datos => {
-          this.productos = datos;
-        })
-      );
-    }
-
-    editarProducto(id: number){
-      this.enrutador.navigate(['editar-producto', id]);
-    }
-
-    buscarCodigo(codigo: number){
-      this.enrutador.navigate(['editar-producto', codigo]);
-    }
-
-  comprarProducto(id: number){
-      this.enrutador.navigate(['comprar-producto', id]);
-    }
-
-    eliminarProducto(id: number){
-      this.productoServicio.eliminarProducto(id).subscribe(
-        {
-          next: (datos) => this.obtenerProductos(),
-          error: (errores) => console.log(errores)
-        }
-      );
-    }
+  ngOnInit(){
+    //Cargamos los productos
+    this.obtenerProductos();
   }
+
+  private obtenerProductos(){
+    //Consumir los datos del observable (suscribirnos)
+    this.productoServicio.obtenerProductosLista().subscribe(
+      (datos => {
+        this.productos = datos;
+      })
+    );
+  }
+
+  editarProducto(id: number){
+    this.enrutador.navigate(['editar-producto', id]);
+  }
+
+  eliminarProducto(id: number){
+    this.productoServicio.eliminarProducto(id).subscribe(
+      {
+        next: (datos) => this.obtenerProductos(),
+        error: (errores) => console.log(errores)
+      }
+    );
+  }
+}

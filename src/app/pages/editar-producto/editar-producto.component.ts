@@ -42,3 +42,4 @@ export class EditarProductoComponent {
     this.enrutador.navigate(['/productos']);
   }
 }
+

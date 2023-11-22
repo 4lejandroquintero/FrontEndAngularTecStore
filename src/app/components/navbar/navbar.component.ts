@@ -34,16 +34,17 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
-  ngOnInitDos(){
-    this.codigo = this.ruta.snapshot.params['codigo'];
-    this.ProductoServicio.obtenerPorudctoPorCodigo(this.codigo).subscribe(
-      {
-        next: (datos) => this.producto = datos
-        ,
-        error: (errores: any) => console.log(errores)
-      }
-    );
-  }
+  // ngOnInitDos(){
+  //   this.codigo = this.ruta.snapshot.params['codigo'];
+  //   this.ProductoServicio.obtenerPorudctoPorCodigo(this.codigo).subscribe(
+  //     {
+  //       next: (datos) => this.producto = datos
+  //       ,
+  //       error: (errores: any) => console.log(errores)
+  //     }
+  //   );
+  // }
+  
   buscarCodigo(codigo: number){
     this.enrutador.navigate(['editar-producto', codigo]);
   }

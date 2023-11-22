@@ -1,9 +1,8 @@
 <div class="container">
 
-  <div class="container text-center" style="margin: 30px">
 
-
-    <h3 style="display: inline-block; color: rgb(219, 22, 22);">SISTEMA DE INVENTARIOS</h3>
+  <div class="container text-center" style="margin: 309x">
+    <h3>SISTEMA DE INVENTARIOS</h3>
   </div>
 
 
@@ -12,9 +11,9 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Descripcion</th>
-        <th scope="col">Codigo</th>
-        <th scope="col">Precio</th>
         <th scope="col">Existencias</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Codigo</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -22,14 +21,13 @@
       <tr *ngFor="let producto of productos">
         <th scope="row">{{producto.idProducto}}</th>
         <td>{{producto.descripcion}}</td>
-        <td>{{producto.codigo}}</td>
-        <td>{{producto.precio}}</td>
         <td>{{producto.existencia}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.codigo}}</td>
         <td class="text-center">
           <div>
             <button (click)="editarProducto(producto.idProducto)" class="btn btn-info btn-sm me-3">Editar</button>
             <button (click)="eliminarProducto(producto.idProducto)" class="btn btn-danger btn-sm me-3">Eliminar</button>
-            <button (click)="comprarProducto(producto.idProducto)" class="btn btn-warning btn-sm me-3">Comprar</button>
           </div>
         </td>
       </tr>
