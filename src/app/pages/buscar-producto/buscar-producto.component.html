@@ -1,9 +1,31 @@
-  <div class="mb-3">
-    <label for="descripcion" class="form-label">Buscar Por Referencia</label>
-    <input type="text" name="descripcion" class="form-control" placeholder="Buscar por Referencia" id="descripcion"  required="true" [(ngModel)]="producto.descripcion">
-    <!-- <button (click)="editarProductoDescripcion(producto.idProducto)" routerLinkActive="active" class="btn btn-outline-success" type="submit">Search</button> -->
-    <input (click)="editarProductoDescripcion(producto.descripcion)" type="submit" value="buscar" class="btn btn-success"/>
-<br>
+<div class="container">
 
-<app-producto-lista></app-producto-lista>
+  <div class="container text-center" style="margin: 309x">
+    <h3>BUSCADOR PRODUCTOS</h3>
+  </div>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Referencia del Producto</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" required="true" [(ngModel)]="producto.descripcion">
+    </div>
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio del producto</label>
+      <input type="number" step="any" class="form-control" id="precio" name="precio" [(ngModel)]="producto.precio">
+    </div>
+    <div class="mb-3">
+      <label for="existencia" class="form-label">Existencia</label>
+      <input type="number" class="form-control" id="existencia" name="existencia" [(ngModel)]="producto.existencia">
+    </div>
+    <div class="mb-3">
+      <label for="codigo" class="form-label">Codigo Producto</label>
+      <input type="number" class="form-control" id="codigo" name="codigo" [(ngModel)]="producto.codigo">
+    </div>
+    <div class="text-center">
+      <a href="productos" class="btn btn-danger btn-sm">Regresar</a>
+    </div>
+  </form>
+
+</div>
+
 

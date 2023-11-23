@@ -46,7 +46,7 @@ const routes: Routes = [
   {path: 'agregar-producto', component: AgregarProductoComponent},
   {path: 'editar-producto/:id', component: EditarProductoComponent},
   {path: 'comprar-producto/:id', component: ComprarProductoComponent},
-  {path: 'buscar-producto', component: BuscarProductoComponent}
+  {path: 'buscar-producto/:descripcion', component: BuscarProductoComponent}
 ];
 
 @NgModule({

@@ -4,7 +4,29 @@
   <div class="container text-center" style="margin: 309x">
     <h3>SISTEMA DE INVENTARIOS</h3>
   </div>
+  <div>
+    <!-- <form class="d-flex" role="search">
+      <label >Buscar:</label>
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button (click)="buscarProductoPorDescripcion(producto.descripcion)"class="btn btn-outline-success" type="submit">Buscar</button>
+    </form> -->
+    <div>
+      <h2>Lista de datos de la tabla:</h2>
+      <!-- <ul>
+        <li *ngFor="let dato of productos">{{ dato.descripcion }}</li>
+      </ul> -->
 
+      <label for="inputNombre">Selecciona un dato:</label>
+      <select id="inputNombre" [(ngModel)]="descripcion">
+        <option *ngFor="let dato of productos" [value]="dato.descripcion">{{ dato.descripcion }}</option>
+      </select>
+
+      <p>Dato seleccionado: {{ descripcion }}
+        <button (click)="buscarProductoPorDescripcion(descripcion)" class="btn btn-info btn-sm me-3">Buscar</button>
+      </p>
+    </div>
+
+  </div>
 
   <table class="table table-striped table-hover align-middle">
     <thead class="table-dark">
@@ -30,7 +52,10 @@
             <button (click)="eliminarProducto(producto.idProducto)" class="btn btn-danger btn-sm me-3">Eliminar</button>
           </div>
         </td>
+
       </tr>
+
     </tbody>
+
   </table>
 </div>

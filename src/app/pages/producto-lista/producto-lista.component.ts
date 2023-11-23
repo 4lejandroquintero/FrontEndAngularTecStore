@@ -9,12 +9,25 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class ProductoListaComponent {
   productos: Producto[] = [];
+  descripcion!: string;
+  producto: any;
 
   constructor(private productoServicio: ProductoService, private enrutador: Router) {}
 
   ngOnInit(){
     //Cargamos los productos
     this.obtenerProductos();
+  }
+
+  obtenerDatos(): void{
+    this.productoServicio.obtenerPorudctoPorDescripcion(this.descripcion).subscribe(
+      (data) => {
+        this.producto = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   private obtenerProductos(){
@@ -30,8 +43,8 @@ export class ProductoListaComponent {
     this.enrutador.navigate(['editar-producto', id]);
   }
 
-  editarProductoDescripcion(descripcion: string){
-    this.enrutador.navigate(['editar-producto', descripcion]);
+  buscarProductoPorDescripcion(descripcion: string){
+    this.enrutador.navigate(['buscar-producto', descripcion]);
   }
 
   eliminarProducto(id: number){
