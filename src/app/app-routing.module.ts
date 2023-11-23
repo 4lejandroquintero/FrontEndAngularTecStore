@@ -12,6 +12,7 @@ import { AgregarProductoComponent } from './pages/agregar-producto/agregar-produ
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
 import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
 import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,22 @@ const routes: Routes = [
   {path: 'agregar-producto', component: AgregarProductoComponent},
   {path: 'editar-producto/:id', component: EditarProductoComponent},
   {path: 'comprar-producto/:id', component: ComprarProductoComponent},
-  {path: 'buscar-producto/:descripcion', component: BuscarProductoComponent}
+  {path: 'buscar-producto/:descripcion', component: BuscarProductoComponent},
+  {path: 'admin', component:DashboardComponent, canActivate:[AdminGuard],
+    children:[
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path : '',
+        component : WelcomeComponent
+      },
+      {
+        path:'categorias',
+        component:ViewCategoriasComponent
+      }
+    ]}
 ];
 
 @NgModule({

@@ -28,6 +28,9 @@ import { EditarProductoComponent } from './pages/editar-producto/editar-producto
 import { ProductoListaComponent } from './pages/producto-lista/producto-lista.component';
 import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
 import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
+import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto
     EditarProductoComponent,
     ProductoListaComponent,
     ComprarProductoComponent,
-    BuscarProductoComponent
+    BuscarProductoComponent,
+    AddCategoriaComponent,
+    ProfileComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
