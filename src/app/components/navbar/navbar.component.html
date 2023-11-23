@@ -1,4 +1,4 @@
-<mat-toolbar color="accent">
+<mat-toolbar color="primary">
   <a
     [routerLink]="'/'"
     mat-icon-button
@@ -37,8 +37,7 @@
             >Crear Admin</a>
           </li>
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button (click)="buscarCodigo(producto.codigo)" class="btn btn-outline-success" type="submit">Search</button>
+            <button routerLink="buscar-producto" routerLinkActive="active" class="btn btn-outline-success" type="submit">Search</button>
           </form>
 
           <li class="nav-item">

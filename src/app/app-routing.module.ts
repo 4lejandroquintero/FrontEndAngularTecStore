@@ -11,6 +11,7 @@ import { ProductoListaComponent } from './pages/producto-lista/producto-lista.co
 import { AgregarProductoComponent } from './pages/agregar-producto/agregar-producto.component';
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
 import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
+import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'productos', pathMatch:'full'},
   {path: 'agregar-producto', component: AgregarProductoComponent},
   {path: 'editar-producto/:id', component: EditarProductoComponent},
-  {path: 'comprar-producto/:id', component: ComprarProductoComponent}
+  {path: 'comprar-producto/:id', component: ComprarProductoComponent},
+  {path: 'buscar-producto', component: BuscarProductoComponent}
 ];
 
 @NgModule({

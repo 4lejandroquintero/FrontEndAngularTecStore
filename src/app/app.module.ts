@@ -27,6 +27,7 @@ import { AgregarProductoComponent } from './pages/agregar-producto/agregar-produ
 import { EditarProductoComponent } from './pages/editar-producto/editar-producto.component';
 import { ProductoListaComponent } from './pages/producto-lista/producto-lista.component';
 import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
+import { BuscarProductoComponent } from './pages/buscar-producto/buscar-producto.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ComprarProductoComponent } from './pages/comprar-producto/comprar-produ
     AgregarProductoComponent,
     EditarProductoComponent,
     ProductoListaComponent,
-    ComprarProductoComponent
+    ComprarProductoComponent,
+    BuscarProductoComponent
   ],
   imports: [
     BrowserModule,

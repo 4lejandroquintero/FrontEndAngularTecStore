@@ -1,0 +1,9 @@
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Buscar Por Referencia</label>
+    <input type="text" name="descripcion" class="form-control" placeholder="Buscar por Referencia" id="descripcion"  required="true" [(ngModel)]="producto.descripcion">
+    <!-- <button (click)="editarProductoDescripcion(producto.idProducto)" routerLinkActive="active" class="btn btn-outline-success" type="submit">Search</button> -->
+    <input (click)="editarProductoDescripcion(producto.descripcion)" type="submit" value="buscar" class="btn btn-success"/>
+<br>
+
+<app-producto-lista></app-producto-lista>
+
