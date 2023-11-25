@@ -1,0 +1,56 @@
+<mat-card class="mt10" *ngFor = "let e of productos">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        Esta es la categoria codigo = {{ e.codigo }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        Y es la categoría de = {{ e.categoria.descripcion }}
+      </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink] = "'/admin/ver-productos/'+e.productoId+'/'+e.codigo">Producto</button>
+      <button [routerLink] = "'/admin/examen/'+e.examenId" mat-flat-button color="primary" class="ml20">Actualizar</button>
+      <button mat-flat-button color="warn" class="ml10" (click) = "eliminarProducto(e.productoId)">Eliminar</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-producto" mat-raised-button color="primary">Agregar Productos al Inventario</button>
+</div>
+
+
+ <!-- <table class="table table-striped table-hover align-middle">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Referencia</th>
+      <th scope="col">Existencias</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Codigo</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <th scope="row">{{producto.idProducto}}</th>
+      <td>{{producto.descripcion}}</td>
+      <td>{{producto.existencia}}</td>
+      <td>{{producto.precio}}</td>
+      <td>{{producto.codigo}}</td>
+      <td class="text-center">
+        <div>
+          <button  class="btn btn-info btn-sm me-3">Editar</button>
+          <button (click)="eliminarProducto(producto.idProducto)" class="btn btn-danger btn-sm me-3">Eliminar</button>
+        </div>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table> -->
+
+

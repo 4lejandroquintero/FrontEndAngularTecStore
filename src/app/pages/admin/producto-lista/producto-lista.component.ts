@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Producto } from 'src/app/services/producto';
-import { ProductoService } from 'src/app/services/producto.service';
+import { Producto } from 'src/app/services/productos';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-producto-lista',
@@ -12,7 +12,7 @@ export class ProductoListaComponent {
   descripcion!: string;
   producto: any;
 
-  constructor(private productoServicio: ProductoService, private enrutador: Router) {}
+  constructor(private productosServicio: ProductosService, private enrutador: Router) {}
 
   ngOnInit(){
     //Cargamos los productos
@@ -20,7 +20,7 @@ export class ProductoListaComponent {
   }
 
   obtenerDatos(): void{
-    this.productoServicio.obtenerPorudctoPorDescripcion(this.descripcion).subscribe(
+    this.productosServicio.obtenerPorudctoPorDescripcion(this.descripcion).subscribe(
       (data) => {
         this.producto = data;
       },
@@ -32,7 +32,7 @@ export class ProductoListaComponent {
 
   private obtenerProductos(){
     //Consumir los datos del observable (suscribirnos)
-    this.productoServicio.obtenerProductosLista().subscribe(
+    this.productosServicio.obtenerProductosLista().subscribe(
       (datos => {
         this.productos = datos;
       })
@@ -40,7 +40,7 @@ export class ProductoListaComponent {
   }
 
   editarProducto(id: number){
-    this.enrutador.navigate(['editar-producto', id]);
+    this.enrutador.navigate(['admin/editar-producto', id]);
   }
 
   buscarProductoPorDescripcion(descripcion: string){
@@ -48,7 +48,7 @@ export class ProductoListaComponent {
   }
 
   eliminarProducto(id: number){
-    this.productoServicio.eliminarProducto(id).subscribe(
+    this.productosServicio.eliminarProducto(id).subscribe(
       {
         next: (datos) => this.obtenerProductos(),
         error: (errores) => console.log(errores)

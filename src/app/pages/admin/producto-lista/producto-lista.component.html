@@ -23,6 +23,7 @@
 
       <p>Dato seleccionado: {{ descripcion }}
         <button (click)="buscarProductoPorDescripcion(descripcion)" class="btn btn-info btn-sm me-3">Buscar</button>
+        <a href="admin" class="btn btn-danger btn-sm">Regresar</a>
       </p>
     </div>
 
@@ -32,20 +33,24 @@
     <thead class="table-dark">
       <tr>
         <th scope="col">Id</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Codigo</th>
         <th scope="col">Referencia</th>
         <th scope="col">Existencias</th>
         <th scope="col">Precio</th>
-        <th scope="col">Codigo</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let producto of productos">
         <th scope="row">{{producto.idProducto}}</th>
+        <td>{{producto.activo}}</td>
+        <td>{{producto.codigo}}</td>
         <td>{{producto.descripcion}}</td>
         <td>{{producto.existencia}}</td>
         <td>{{producto.precio}}</td>
-        <td>{{producto.codigo}}</td>
+        <td>{{producto.categoria}}</td>
         <td class="text-center">
           <div>
             <button (click)="editarProducto(producto.idProducto)" class="btn btn-info btn-sm me-3">Editar</button>

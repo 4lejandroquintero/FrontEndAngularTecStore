@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Producto } from 'src/app/services/producto';
-import { ProductoService } from 'src/app/services/producto.service';
+import { Producto } from 'src/app/services/productos';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -11,7 +11,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 export class AgregarProductoComponent {
   producto: Producto = new Producto();
 
-  constructor(private productoServicio: ProductoService, private enrutador: Router){}
+  constructor(private productoServicio: ProductosService, private enrutador: Router){}
 
   onSubmit(){
     this.guardarProducto();

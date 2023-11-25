@@ -7,58 +7,19 @@
   >
     <mat-icon>home</mat-icon>
   </a>
-
-  <label class="logo">TC</label>
+  <span>Tienda Minorista TecStore</span>
   <span class="example-spacer"></span>
-
-  <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-      <a class="nav-link" routerLink="agregar-producto" routerLinkActive="active" style="margin-right: 50px"
-      *ngIf="isLoggedIn"
-      nav-link="true"
-      >Agregar Producto</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="productos" style="margin-right: 50px" routerLinkActive="active"
-            *ngIf="isLoggedIn"
-            nav-link="true"
-            >Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" style="margin-right: 50px"
-            *ngIf="isLoggedIn"
-            [routerLink]="'/signup'"
-            nav-link="true"
-            >Crear Admin</a>
-          </li>
-          <form class="d-flex" role="search">
-            <button routerLink="productos" routerLinkActive="active" class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true"></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <a
-    *ngIf="!isLoggedIn"
+    *ngIf = "!isLoggedIn"
     [routerLink]="'/login'"
     mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
+    class = "example-icon favorite-icon"
+    aria-label = "Example icon-button with heart icon"
   >
     Iniciar sesión
   </a>
   <a
-    *ngIf="!isLoggedIn"
+    *ngIf = "!isLoggedIn"
     [routerLink]="'/signup'"
     mat-icon-button
     class="example-icon favorite-icon mr20 ml70"
@@ -67,33 +28,23 @@
     Registrar
   </a>
   <a
-    *ngIf="isLoggedIn"
-    (click)="logout()"
+    *ngIf = "isLoggedIn"
+    (click) = "logout()"
     style="margin-right: 50px"
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
-    nav-link="true"
   >
     Cerrar sesión
   </a>
-
   <button
-    *ngIf="isLoggedIn && user"
+    *ngIf = "isLoggedIn && user"
     mat-button
     style="margin-right: 10px"
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
+    [routerLink] = "'/admin/profile'"
   >
     {{ user.username }}
-  </button>
-  <button
-    [routerLink]="'/'"
-    mat-button
-    style="margin-right: 10px"
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    X
   </button>
 </mat-toolbar>

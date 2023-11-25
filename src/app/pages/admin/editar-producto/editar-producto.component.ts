@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Producto } from 'src/app/services/producto';
-import { ProductoService } from 'src/app/services/producto.service';
+import { Producto } from 'src/app/services/productos';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-editar-producto',
@@ -11,11 +11,11 @@ export class EditarProductoComponent {
   producto: Producto = new Producto();
   id!: number;
 
-  constructor(private ProductoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router){}
+  constructor(private productosServicio: ProductosService, private ruta: ActivatedRoute, private enrutador: Router){}
 
   ngOnInit(){
     this.id = this.ruta.snapshot.params['id'];
-    this.ProductoServicio.obtenerPorudctoPorId(this.id).subscribe(
+    this.productosServicio.obtenerPorudctoPorId(this.id).subscribe(
       {
         next: (datos) => this.producto = datos
         ,
@@ -30,7 +30,7 @@ export class EditarProductoComponent {
   }
 
   guardarProducto(){
-    this.ProductoServicio.guardarrProducto(this.id, this.producto).subscribe(
+    this.productosServicio.guardarrProducto(this.id, this.producto).subscribe(
       {
         next: (datos) => this.irProductoLista(),
         error: (errores) => console.log(errores)

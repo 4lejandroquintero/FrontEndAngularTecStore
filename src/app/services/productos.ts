@@ -1,7 +1,9 @@
 export class Producto {
   idProducto!: number;
+  activo!: boolean;
+  codigo! : string;
   descripcion!: string;
-  precio!: number;
   existencia!: number;
-  codigo! : number;
+  precio!: number;
+  categoria!: string;
 }

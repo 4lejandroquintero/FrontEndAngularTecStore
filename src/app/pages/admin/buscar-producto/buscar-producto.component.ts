@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Producto } from 'src/app/services/producto';
-import { ProductoService } from 'src/app/services/producto.service';
+import { Producto } from 'src/app/services/productos';
+import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
   selector: 'app-buscar-producto',
@@ -13,7 +13,7 @@ export class BuscarProductoComponent {
   descripcion!: string;
   id!: number;
 
-  constructor(private productoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router){}
+  constructor(private productoServicio: ProductosService, private ruta: ActivatedRoute, private enrutador: Router){}
 
   ngOnInit() {
     this.descripcion = this.ruta.snapshot.params['descripcion'];
