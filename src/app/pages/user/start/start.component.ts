@@ -2,6 +2,7 @@ import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PreguntaService } from 'src/app/services/pregunta.service';
+import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,9 +14,10 @@ export class StartComponent implements OnInit {
 
   productoId:any;
   preguntas:any;
-  existencias = 0;
+  puntosConseguidos = 0;
   respuestasCorrectas = 0;
   intentos = 0;
+  productos:any;
 
   esEnviado = false;
   timer:any;
@@ -23,7 +25,8 @@ export class StartComponent implements OnInit {
   constructor(
     private locationSt:LocationStrategy,
     private route:ActivatedRoute,
-    private preguntaService:PreguntaService
+    private preguntaService:PreguntaService,
+    private productoService: ProductoService
   ) { }
 
   ngOnInit(): void {
@@ -45,26 +48,26 @@ export class StartComponent implements OnInit {
           p['respuestaDada'] = '';
         })
         console.log(this.preguntas);
-        // this.iniciarTemporizador();
+        this.iniciarTemporizador();
       },
       (error) => {
         console.log(error);
-        Swal.fire('Error','Error al cargar las preguntas del producto','error');
+        Swal.fire('Error','Error al cargar la pagina','error');
       }
     )
   }
 
 
-  // iniciarTemporizador(){
-  //   let t = window.setInterval(() => {
-  //     if(this.timer <= 0){
-  //       this.evaluarProducto();
-  //       clearInterval(t);
-  //     }else{
-  //       this.timer --;
-  //     }
-  //   },1000)
-  // }
+  iniciarTemporizador(){
+    let t = window.setInterval(() => {
+      if(this.timer <= 0){
+        this.evaluarProducto();
+        clearInterval(t);
+      }else{
+        this.timer --;
+      }
+    },1000)
+  }
 
   prevenirElBotonDeRetroceso(){
     history.pushState(null,null!,location.href);
@@ -73,9 +76,9 @@ export class StartComponent implements OnInit {
     })
   }
 
-  enviarCuestionario(){
+  enviarCompra(){
     Swal.fire({
-      title: '¿Quieres enviar el producto?',
+      title: '¿Quieres enviar la compra?',
       showCancelButton: true,
       cancelButtonText:'Cancelar',
       confirmButtonText: 'Enviar',
@@ -91,8 +94,8 @@ export class StartComponent implements OnInit {
     this.preguntaService.evaluarProducto(this.preguntas).subscribe(
       (data:any) => {
         console.log(data);
-        this.existencias = data.puntosMaximos;
-        this.respuestasCorrectas = data.respuestasCorrectas;
+        this.puntosConseguidos = 5;
+        this.respuestasCorrectas = 4;
         this.intentos = data.intentos;
         this.esEnviado = true;
       },

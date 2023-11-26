@@ -1,1 +1,13 @@
-hjgshglsh
+<h2>¿Ingrese cantidad a comprar?</h2>
+<div *ngFor="let option of data">
+  <button mat-button (click)="onSelect(option)">{{ option }}</button>
+
+</div>
+<div class="actions">
+  <input type="number" placeholder="Cantidad" min="1" />
+  <br>
+  <br>
+  <br>
+  <button mat-button [mat-dialog-close]="selectedOption" cdkFocusInitial>Confirmar</button>
+  <button mat-button (click)="closeDialog()">Cancelar</button>
+</div>

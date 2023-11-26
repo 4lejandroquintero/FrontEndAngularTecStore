@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-instrucciones',
@@ -32,12 +33,12 @@ export class InstruccionesComponent implements OnInit {
     )
   }
 
-  verProducto(){
+  empezarExamen(){
     Swal.fire({
-      title:'¿Estar de acuerdo con las instrucciones de compra?',
+      title:'¿Quieres comenzar la compra?',
       showCancelButton:true,
-      cancelButtonText:'No',
-      confirmButtonText:'Si',
+      cancelButtonText:'Cancelar',
+      confirmButtonText:'Empezar',
       icon:'info'
     }).then((result:any) => {
       if(result.isConfirmed){
