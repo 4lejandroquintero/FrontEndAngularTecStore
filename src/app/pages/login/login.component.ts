@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+
+
   loginData = {
     "username" : '',
     "password" : '',
@@ -17,10 +19,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private snack:MatSnackBar,private loginService:LoginService,private router:Router) { }
 
+
   ngOnInit(): void {
   }
 
   formSubmit(){
+
     if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
       this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
         duration:3000
@@ -34,7 +38,7 @@ export class LoginComponent implements OnInit {
       })
       return;
     }
-
+    let intentosFallidos = 0;
     this.loginService.generateToken(this.loginData).subscribe(
       (data:any) => {
         console.log(data);
@@ -60,10 +64,19 @@ export class LoginComponent implements OnInit {
           }
         })
       },(error) => {
+        intentosFallidos++;
         console.log(error);
         this.snack.open('Detalles inválidos , vuelva a intentar !!','Aceptar',{
           duration:3000
         })
+        if(intentosFallidos==3){
+          this.loginData.password="9639"
+          this.snack.open('Ups .. cuenta bloqueada por intentos fallidos !!','Aceptar',{
+            duration:3000
+          })
+        }else{
+          intentosFallidos=0;
+        }
       }
     )
   }

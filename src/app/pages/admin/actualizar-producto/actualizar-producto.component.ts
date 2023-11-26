@@ -53,7 +53,7 @@ export class ActualizarProductoComponent implements OnInit {
         );
       },
       (error) => {
-        Swal.fire('Error en el sistema','No se ha podido actualizar el examen','error');
+        Swal.fire('Error en el sistema','No se ha podido actualizar el producto','error');
         console.log(error);
       }
     )

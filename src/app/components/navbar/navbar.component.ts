@@ -2,7 +2,6 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Producto } from 'src/app/services/productos';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +9,7 @@ import { Producto } from 'src/app/services/productos';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  producto: Producto = new Producto();
-  codigo!: number;
+ 
 
   isLoggedIn = false;
   user:any = null;

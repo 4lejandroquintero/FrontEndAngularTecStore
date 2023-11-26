@@ -35,7 +35,7 @@ export class ProductoService {
     return this.http.get(`${baserUrl}/producto/categoria/${categoriaId}`);
   }
 
-  public obtenerProductoActivos(){
+  public obtenerProductosActivos(){
     return this.http.get(`${baserUrl}/producto/activo`);
   }
 
@@ -43,13 +43,3 @@ export class ProductoService {
     return this.http.get(`${baserUrl}/producto/categoria/activo/${categoriaId}`);
   }
 }
-
-
-
-
-
-
-
-
-
-

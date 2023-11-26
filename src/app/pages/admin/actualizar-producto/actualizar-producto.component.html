@@ -14,7 +14,7 @@
           matInput>
         </mat-form-field>
         <mat-form-field class="w100" appearance="fill">
-          <mat-label>Descripción</mat-label>
+          <mat-label>Descripción del producto</mat-label>
           <textarea
           [(ngModel)] = "producto.descripcion"
           type="text"
@@ -27,23 +27,23 @@
         <div class="row">
           <div class="col-md-6">
             <mat-form-field class="w100" appearance="fill">
-              <mat-label>Existencias</mat-label>
+              <mat-label>Precio del producto</mat-label>
               <input
-              [(ngModel)] = "producto.existencia"
-              type="text"
-              name="existencia"
-              placeholder="Digite la cantidad de existencia"
+              [(ngModel)] = "producto.precio"
+              type="number"
+              name="precio"
+              placeholder="Digite el precio del producto"
               matInput>
             </mat-form-field>
           </div>
           <div class="col-md-6">
             <mat-form-field class="w100" appearance="fill">
-              <mat-label>Precio</mat-label>
+              <mat-label>Existencia</mat-label>
               <input
-              [(ngModel)] = "producto.precio"
-              type="text"
-              name="precio"
-              placeholder="Digite el precio"
+              [(ngModel)] = "producto.existencia"
+              type="number"
+              name="existencia"
+              placeholder="Digite existencia del producto"
               matInput>
             </mat-form-field>
           </div>

@@ -9,14 +9,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductoListaComponent } from './pages/admin/producto-lista/producto-lista.component';
-import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
-import { BuscarProductoComponent } from './pages/admin/buscar-producto/buscar-producto.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriasComponent } from './pages/admin/view-categorias/view-categorias.component';
 import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
-import { AgregarProductoComponent } from './pages/admin/agregar-producto/agregar-producto.component';
-import { EditarProductoComponent } from './pages/admin/editar-producto/editar-producto.component';
 import { AddProductoComponent } from './pages/admin/add-producto/add-producto.component';
 import { ViewProductosComponent } from './pages/admin/view-productos/view-productos.component';
 import { ViewProductoInventariosComponent } from './pages/admin/view-producto-inventarios/view-producto-inventarios.component';
@@ -45,8 +41,6 @@ const routes: Routes = [
     component : LoginComponent,
     pathMatch : 'full'
   },
-  {path: 'comprar-producto/:id', component: ComprarProductoComponent},
-  {path: 'buscar-producto/:descripcion', component: BuscarProductoComponent},
   {path: 'recover-password', component: RecoverPasswordComponent},
   {path: 'token', component: TokenComponent},
   {path: 'admin',
@@ -83,10 +77,6 @@ const routes: Routes = [
     },
     {
       path:'ver-preguntas/:productoId/:codigo',
-      component:ViewProductoInventariosComponent
-    },
-    {
-      path:'ver-productos/:productoId/:codigo',
       component:ViewProductoInventariosComponent
     },
     {

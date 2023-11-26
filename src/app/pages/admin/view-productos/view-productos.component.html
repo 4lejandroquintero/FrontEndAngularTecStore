@@ -15,10 +15,9 @@
   <mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="primary" [routerLink] = "'/admin/ver-preguntas/'+e.productoId+'/'+e.codigo">FICHAS</button>
-      <button mat-stroked-button color="primary" class="ml20">Existencia {{ e.existencia }}</button>
-      <button mat-stroked-button color="primary" class="ml20">Precio {{ e.precio }}</button>
+      <button mat-stroked-button color="primary" class="ml20">Existencia {{ e.existencia }} /unidad </button>
+      <button mat-stroked-button color="primary" class="ml20">Precio ${{ e.precio }}</button>
       <button [routerLink] = "'/admin/producto/'+e.productoId" mat-flat-button color="primary" class="ml20">Actualizar</button>
-      <button mat-flat-button color="primary" class="ml20">Intentos</button>
       <button mat-flat-button color="warn" class="ml10" (click) = "eliminarProducto(e.productoId)">Eliminar</button>
     </mat-card-actions>
   </mat-card-content>

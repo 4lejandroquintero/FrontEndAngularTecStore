@@ -1,58 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Producto } from 'src/app/services/productos';
 import { ProductoService } from 'src/app/services/producto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto-lista',
   templateUrl: './producto-lista.component.html'
 })
 export class ProductoListaComponent {
-  // productos: Producto[] = [];
-  // descripcion!: string;
-  // producto: any;
+  productos : any = [
 
-  constructor(private productosServicio: ProductoService, private enrutador: Router) {}
+  ]
 
-  ngOnInit(){
-    //Cargamos los productos
-    // this.obtenerProductos();
+  constructor(private productosService:ProductoService, private enrutador: Router) { }
+
+  ngOnInit(): void {
+    this.productosService.listarCuestionarios().subscribe(
+      (dato:any) => {
+        this.productos = dato;
+        console.log(this.productos);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error','Error al cargar los productos','error');
+      }
+    )
   }
 
-  // obtenerDatos(): void{
-  //   this.productosServicio.obtenerPorudctoPorDescripcion(this.descripcion).subscribe(
-  //     (data) => {
-  //       this.producto = data;
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }
-
-  // private obtenerProductos(){
-  //   //Consumir los datos del observable (suscribirnos)
-  //   this.productosServicio.obtenerProductosLista().subscribe(
-  //     (datos => {
-  //       this.productos = datos;
-  //     })
-  //   );
-  // }
-
-  editarProducto(id: number){
-    this.enrutador.navigate(['admin/editar-producto', id]);
+  eliminarProducto(productoId:any){
+    Swal.fire({
+      title:'Eliminar prodcuto',
+      text:'¿Estás seguro de eliminar el producto?',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonColor:'#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText:'Eliminar',
+      cancelButtonText:'Cancelar'
+    }).then((result) => {
+      if(result.isConfirmed){
+        this.productosService.eliminarProducto(productoId).subscribe(
+          (data) => {
+            this.productos = this.productos.filter((producto:any) => producto.productoId != productoId);
+            Swal.fire('Prodcuto eliminado','El producto ha sido eliminado de la base de datos','success');
+          },
+          (error) => {
+            Swal.fire('Error','Error al eliminar el producto','error');
+          }
+        )
+      }
+    })
   }
-
-  buscarProductoPorDescripcion(descripcion: string){
-    this.enrutador.navigate(['buscar-producto', descripcion]);
-  }
-
-  // eliminarProducto(id: number){
-  //   this.productosServicio.eliminarProducto(id).subscribe(
-  //     {
-  //       next: (datos) => this.obtenerProductos(),
-  //       error: (errores) => console.log(errores)
-  //     }
-  //   );
-  // }
 }

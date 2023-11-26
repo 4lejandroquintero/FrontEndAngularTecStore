@@ -28,14 +28,10 @@ import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { ProductoListaComponent } from './pages/admin/producto-lista/producto-lista.component';
-import { ComprarProductoComponent } from './pages/comprar-producto/comprar-producto.component';
-import { BuscarProductoComponent } from './pages/admin/buscar-producto/buscar-producto.component';
 import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriasComponent } from './pages/admin/view-categorias/view-categorias.component';
-import { AgregarProductoComponent } from './pages/admin/agregar-producto/agregar-producto.component';
-import { EditarProductoComponent } from './pages/admin/editar-producto/editar-producto.component';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { AddProductoComponent } from './pages/admin/add-producto/add-producto.component';
 import { ViewProductosComponent } from './pages/admin/view-productos/view-productos.component';
@@ -61,11 +57,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     HomeComponent,
     DashboardComponent,
     UserDashboardComponent,
-    AgregarProductoComponent,
-    EditarProductoComponent,
     ProductoListaComponent,
-    ComprarProductoComponent,
-    BuscarProductoComponent,
     AddCategoriaComponent,
     ProfileComponent,
     WelcomeComponent,

@@ -23,7 +23,7 @@ export class LoadProductoComponent implements OnInit {
 
         if(this.catId == 0){
           console.log("Cargando todos los productos");
-          this.productoService.obtenerProductoActivos().subscribe(
+          this.productoService.obtenerProductosActivos().subscribe(
             (data) => {
               this.productos = data;
               console.log(this.productos);
