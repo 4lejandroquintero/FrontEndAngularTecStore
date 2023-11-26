@@ -2,3 +2,11 @@
   flex: 1 1 auto;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px; /* Ajusta la altura según sea necesario */
+  width: 400px; /* Ajusta el color de fondo según sea necesario */
+}
+

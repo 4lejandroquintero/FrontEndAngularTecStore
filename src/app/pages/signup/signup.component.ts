@@ -30,6 +30,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   formSubmit(){
     console.log(this.user);
     if(this.user.username == '' || this.user.username == null){
@@ -38,8 +40,39 @@ export class SignupComponent implements OnInit {
         verticalPosition : 'top',
         horizontalPosition : 'right'
       });
-            return;
+
+      return;
   }
+
+
+
+  if(this.user.password.length <= 6 ){
+    this.snack.open('Contraseña muy corta !!','Aceptar',{
+      duration : 3000,
+      verticalPosition : 'top',
+      horizontalPosition : 'right'
+    });
+          return;
+  }
+
+  if(this.user.password.length >15){
+    this.snack.open('Contraseña muy larga !!','Aceptar',{
+      duration : 3000,
+      verticalPosition : 'top',
+      horizontalPosition : 'right'
+    });
+    return
+  }
+
+  if(this.user.email.indexOf('@')===-1){
+    this.snack.open('Email no cumple !!','Aceptar',{
+      duration : 3000,
+      verticalPosition : 'top',
+      horizontalPosition : 'right'
+    });
+    return;
+  }
+
 
  if(this.user.admin) {
   let claveIngresada = window.prompt("Ingrese la clave de confirmación:");

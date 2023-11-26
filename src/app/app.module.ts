@@ -46,7 +46,12 @@ import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/a
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { environment } from 'src/environments/environment';
+import { ComprarProductoComponent } from './pages/user/comprar-producto/comprar-producto.component';
+import { DialogComponent } from './dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { CarritoComponent } from './pages/user/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +80,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     TokenComponent,
     ActualizarProductoComponent,
     ActualizarPreguntaComponent,
-    AddPreguntaComponent
+    AddPreguntaComponent,
+    ComprarProductoComponent,
+    DialogComponent,
+    NosotrosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +102,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -30,7 +30,7 @@ export class PreguntaService {
   }
 
   public listarPreguntasDelProductoParaLaPrueba(productoId:any){
-    return this.http.get(`${baserUrl}/pregunta/examen/todos/${productoId}`);
+    return this.http.get(`${baserUrl}/pregunta/producto/todos/${productoId}`);
   }
 
   public evaluarProducto(preguntas:any){

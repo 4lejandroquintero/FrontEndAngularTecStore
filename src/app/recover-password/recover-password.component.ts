@@ -18,6 +18,10 @@ export class RecoverPasswordComponent {
     this.enviarEmailUsuario();
   }
 
+  OnReset(){
+    
+  }
+
   enviarEmailUsuario() {
     this.recover.enviarEmail().subscribe(
       {

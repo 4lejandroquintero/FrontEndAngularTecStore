@@ -24,6 +24,9 @@ import { TokenComponent } from './pages/token/token.component';
 import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/actualizar-producto.component';
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
+import { ComprarProductoComponent } from './pages/user/comprar-producto/comprar-producto.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { CarritoComponent } from './pages/user/carrito/carrito.component';
 
 const routes: Routes = [
   {
@@ -43,6 +46,8 @@ const routes: Routes = [
   },
   {path: 'recover-password', component: RecoverPasswordComponent},
   {path: 'token', component: TokenComponent},
+
+
   {path: 'admin',
   component:DashboardComponent,
   canActivate:[AdminGuard],
@@ -103,6 +108,14 @@ const routes: Routes = [
         component:ProfileComponent
       },
       {
+        path:'carrito',
+        component:CarritoComponent
+      },
+      {
+        path:'nosotros',
+        component:NosotrosComponent
+      },
+      {
         path:':catId',
         component:LoadProductoComponent
       },
@@ -117,6 +130,10 @@ const routes: Routes = [
       {
         path:'welcome-user',
         component:WelcomeUserComponent
+      },
+      {
+        path:'comprar',
+        component:ComprarProductoComponent
       }
     ]
   },

@@ -27,6 +27,10 @@ export class ProductoService {
     return this.http.get(`${baserUrl}/producto/${productoId}`);
   }
 
+  public obtenerProductoPorCodigo(codigo:any){
+    return this.http.get(`${baserUrl}/producto/${codigo}`);
+  }
+
   public actualizarProducto(producto:any){
     return this.http.put(`${baserUrl}/producto/`,producto);
   }

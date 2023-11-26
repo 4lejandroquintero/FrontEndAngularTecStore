@@ -7,16 +7,42 @@
   >
     <mat-icon>home</mat-icon>
   </a>
-  <span>Tienda Minorista TecStore</span>
+  <span>TS</span>
   <span class="example-spacer"></span>
+
+  <a
+    *ngIf = "isLoggedIn"
+    (click) = "openSelectDialog()"
+    style="margin-right: 1100px"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    ¿Desde que ciudad compra en TecStore?
+
+    <label>{{ selectedValue }}</label>
+  </a>
+
+
+  <mat-form-field appearance="fill" class="navbar-container">
+    <mat-select name="categoria" (click)=Buscar()>
+      <mat-option [routerLink] = "'/user-dashboard/'+c.categoriaId" *ngFor = "let c of categoria" [value] = "c.categoriaId">
+        {{ c.codigo }}
+      </mat-option>
+    </mat-select>
+    <mat-icon  style="margin-left: 20px;" mat-list-icon>search</mat-icon>
+  </mat-form-field>
+
   <a
     *ngIf = "!isLoggedIn"
     [routerLink]="'/login'"
     mat-icon-button
-    class = "example-icon favorite-icon"
+    class = "example-icon favorite-icon mr10 ml10"
     aria-label = "Example icon-button with heart icon"
+
   >
-    Iniciar sesión
+  <mat-icon mat-list-icon>account_circle</mat-icon>
+    Mi Cuenta
   </a>
   <a
     *ngIf = "!isLoggedIn"
@@ -25,7 +51,8 @@
     class="example-icon favorite-icon mr20 ml70"
     aria-label="Example icon-button with heart icon"
   >
-    Registrar
+  <mat-icon mat-list-icon>app_registration</mat-icon>
+    SignUp
   </a>
   <a
     *ngIf = "isLoggedIn"
@@ -40,11 +67,13 @@
   <button
     *ngIf = "isLoggedIn && user"
     mat-button
-    style="margin-right: 10px"
+    style="margin-right: 50px"
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
-    [routerLink] = "'/admin/profile'"
+
   >
     {{ user.username }}
   </button>
+  
+
 </mat-toolbar>
