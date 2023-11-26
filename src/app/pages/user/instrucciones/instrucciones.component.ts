@@ -34,10 +34,10 @@ export class InstruccionesComponent implements OnInit {
 
   verProducto(){
     Swal.fire({
-      title:'¿Quieres ver el producto?',
+      title:'¿Estar de acuerdo con las instrucciones de compra?',
       showCancelButton:true,
-      cancelButtonText:'Cancelar',
-      confirmButtonText:'Empezar',
+      cancelButtonText:'No',
+      confirmButtonText:'Si',
       icon:'info'
     }).then((result:any) => {
       if(result.isConfirmed){

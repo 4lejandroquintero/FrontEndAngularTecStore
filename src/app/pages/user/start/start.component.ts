@@ -14,7 +14,7 @@ export class StartComponent implements OnInit {
   productoId:any;
   preguntas:any;
   existencias = 0;
-  precio = 0;
+  respuestasCorrectas = 0;
   intentos = 0;
 
   esEnviado = false;
@@ -45,7 +45,7 @@ export class StartComponent implements OnInit {
           p['respuestaDada'] = '';
         })
         console.log(this.preguntas);
-        this.iniciarTemporizador();
+        // this.iniciarTemporizador();
       },
       (error) => {
         console.log(error);
@@ -55,16 +55,16 @@ export class StartComponent implements OnInit {
   }
 
 
-  iniciarTemporizador(){
-    let t = window.setInterval(() => {
-      if(this.timer <= 0){
-        this.evaluarProducto();
-        clearInterval(t);
-      }else{
-        this.timer --;
-      }
-    },1000)
-  }
+  // iniciarTemporizador(){
+  //   let t = window.setInterval(() => {
+  //     if(this.timer <= 0){
+  //       this.evaluarProducto();
+  //       clearInterval(t);
+  //     }else{
+  //       this.timer --;
+  //     }
+  //   },1000)
+  // }
 
   prevenirElBotonDeRetroceso(){
     history.pushState(null,null!,location.href);
@@ -91,8 +91,8 @@ export class StartComponent implements OnInit {
     this.preguntaService.evaluarProducto(this.preguntas).subscribe(
       (data:any) => {
         console.log(data);
-        this.existencias = data.existencia;
-        this.precio = data.precio;
+        this.existencias = data.puntosMaximos;
+        this.respuestasCorrectas = data.respuestasCorrectas;
         this.intentos = data.intentos;
         this.esEnviado = true;
       },

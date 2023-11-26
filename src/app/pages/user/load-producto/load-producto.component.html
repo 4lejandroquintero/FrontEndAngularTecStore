@@ -1,6 +1,6 @@
 <div class="bootstrap-wrapper">
   <div class="container-fluid">
-    <h1>Productos disponibles en esta categoría </h1>
+    <h1>Productos disponibles </h1>
     <div class="row mt20" *ngIf = "productos">
       <div class="col-md-6" *ngFor = "let e of productos">
         <mat-card class="mb20">
@@ -21,7 +21,7 @@
             <button mat-button color="primary">Ver</button>
             <button mat-button color="accent" [routerLink] = "'/user-dashboard/instrucciones/'+e.productoId">Comprar</button>
             <button mat-button color="dark">Existencia : {{ e.existencia }} Unidades</button>
-            <button mat-button color="dark">Precio: ${{ e.precio }}</button>
+            <button mat-button color="dark">Precio: {{ e.precio | currency }}</button>
           </mat-card-actions>
         </mat-card>
       </div>
