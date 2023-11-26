@@ -1,4 +1,4 @@
-import { ProductosService } from 'src/app/services/productos.service';
+import { ProductoService } from 'src/app/services/producto.service';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   user:any = null;
 
-  constructor(public login:LoginService, private ProductoServicio: ProductosService, private ruta: ActivatedRoute, private enrutador: Router) { }
+  constructor(public login:LoginService, private ProductoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();

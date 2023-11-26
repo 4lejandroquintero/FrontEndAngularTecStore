@@ -17,10 +17,15 @@ export class SignupComponent implements OnInit {
     nombre : '',
     apellido : '',
     email : '',
-    telefono : ''
+    telefono : '',
+    admin : false,
   }
 
-  constructor(private userService:UserService,private snack:MatSnackBar) { }
+
+
+  constructor(private userService:UserService,private snack:MatSnackBar ) { }
+
+
 
   ngOnInit(): void {
   }
@@ -33,9 +38,22 @@ export class SignupComponent implements OnInit {
         verticalPosition : 'top',
         horizontalPosition : 'right'
       });
-  
-      return;
-    }
+            return;
+  }
+
+ if(this.user.admin) {
+  let claveIngresada = window.prompt("Ingrese la clave de confirmación:");
+  if(claveIngresada === "12345"){
+    Swal.fire('ADMINISTRADOR','Usuario registrado como administrador con exito en el sistema','success');
+  }else {
+    this.snack.open('No tiene permitido registrar como ADMIN !!','Aceptar',{
+      duration : 3000,
+      verticalPosition : 'top',
+      horizontalPosition : 'right'
+    });
+    return;
+  }
+ }
 
     this.userService.añadirUsuario(this.user).subscribe(
       (data) => {
@@ -48,6 +66,7 @@ export class SignupComponent implements OnInit {
         this.user.apellido=('');
         this.user.email=('');
         this.user.telefono=('');
+        this.user.admin=false;
       },(error) => {
         console.log(error);
         this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{

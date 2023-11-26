@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductosService } from 'src/app/services/productos.service';
+import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +14,7 @@ export class InstruccionesComponent implements OnInit {
   producto:any = new Object();
 
   constructor(
-    private productoService:ProductosService,
+    private productoService:ProductoService,
     private route:ActivatedRoute,
     private router:Router
   ) { }

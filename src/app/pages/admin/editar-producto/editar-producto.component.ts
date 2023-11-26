@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from 'src/app/services/productos';
-import { ProductosService } from 'src/app/services/productos.service';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-editar-producto',
@@ -11,35 +11,35 @@ export class EditarProductoComponent {
   producto: Producto = new Producto();
   id!: number;
 
-  constructor(private productosServicio: ProductosService, private ruta: ActivatedRoute, private enrutador: Router){}
+  constructor(private productosServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router){}
 
   ngOnInit(){
-    this.id = this.ruta.snapshot.params['id'];
-    this.productosServicio.obtenerPorudctoPorId(this.id).subscribe(
-      {
-        next: (datos) => this.producto = datos
-        ,
-        error: (errores: any) => console.log(errores)
-      }
-    );
+    // this.id = this.ruta.snapshot.params['id'];
+    // this.productosServicio.obtenerPorudctoPorId(this.id).subscribe(
+    //   {
+    //     next: (datos) => this.producto = datos
+    //     ,
+    //     error: (errores: any) => console.log(errores)
+    //   }
+    // );
   }
 
-  onSubmit(){
-    //editar el producto
-    this.guardarProducto();
-  }
+  // onSubmit(){
+  //   //editar el producto
+  //   this.guardarProducto();
+  // }
 
-  guardarProducto(){
-    this.productosServicio.guardarrProducto(this.id, this.producto).subscribe(
-      {
-        next: (datos) => this.irProductoLista(),
-        error: (errores) => console.log(errores)
-      }
-    );
-  }
+  // guardarProducto(){
+  //   this.productosServicio.guardarrProducto(this.id, this.producto).subscribe(
+  //     {
+  //       next: (datos) => this.irProductoLista(),
+  //       error: (errores) => console.log(errores)
+  //     }
+  //   );
+  // }
 
-  irProductoLista(){
-    this.enrutador.navigate(['/productos']);
-  }
+  // irProductoLista(){
+  //   this.enrutador.navigate(['/productos']);
+  // }
 }
 

@@ -15,7 +15,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private categoriaService:CategoriaService,
-    private snack:MatSnackBar
+    private snack:MatSnackBar,
+    private login:LoginService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +31,11 @@ export class SidebarComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  public logout(){
+    this.login.logout();
+    window.location.reload();
   }
 
 }

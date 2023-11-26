@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Producto } from 'src/app/services/productos';
-import { ProductosService } from 'src/app/services/productos.service';
 import Swal from 'sweetalert2';
+import { PreguntaService } from 'src/app/services/pregunta.service';
 
 @Component({
   selector: 'app-view-producto-inventarios',
@@ -14,17 +13,17 @@ export class ViewProductoInventariosComponent implements OnInit {
 
   productoId:any;
   codigo:any;
-  productos:any = [];
+  preguntas:any = [];
 
-  constructor(private route:ActivatedRoute,private productosService:ProductosService,private snack:MatSnackBar, private enrutador: Router) { }
+  constructor(private route:ActivatedRoute,private preguntaService:PreguntaService,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
     this.productoId = this.route.snapshot.params['productoId'];
     this.codigo = this.route.snapshot.params['codigo'];
-    this.productosService.listarProductosDelInventario(this.productoId).subscribe(
+    this.preguntaService.listarPreguntasDelProducto(this.productoId).subscribe(
       (data:any) => {
         console.log(data);
-        this.productos = data;
+        this.preguntas = data;
       },
       (error) => {
         console.log(error);
@@ -32,29 +31,10 @@ export class ViewProductoInventariosComponent implements OnInit {
     )
   }
 
-  private obtenerProductos(){
-    //Consumir los datos del observable (suscribirnos)
-    this.productosService.obtenerProductosLista().subscribe(
-      (datos => {
-        this.productos = datos;
-      })
-    );
-  }
-
-  editarProducto(id: number){
-    this.enrutador.navigate(['editar-producto', id]);
-  }
-
-  buscarProductoPorDescripcion(descripcion: string){
-    this.enrutador.navigate(['buscar-producto', descripcion]);
-  }
-
-
-
-  eliminarProducto(preguntaId:any){
+  eliminarPregunta(preguntaId:any){
     Swal.fire({
-      title:'Eliminar producto de esta categoria',
-      text:'¿Estás seguro , quieres eliminar este producto?',
+      title:'Eliminar pregunta',
+      text:'¿Estás seguro , quieres eliminar esta pregunta?',
       icon:'warning',
       showCancelButton:true,
       confirmButtonColor:'#3085d6',
@@ -63,12 +43,12 @@ export class ViewProductoInventariosComponent implements OnInit {
       cancelButtonText:'Cancelar'
     }).then((resultado) => {
       if(resultado.isConfirmed){
-        this.productosService.eliminarProducto(preguntaId).subscribe(
+        this.preguntaService.eliminarPregunta(preguntaId).subscribe(
           (data) => {
             this.snack.open('Pregunta eliminada','',{
               duration:3000
             })
-            this.productos = this.productos.filter((pregunta:any) => pregunta.preguntaId != preguntaId);
+            this.preguntas = this.preguntas.filter((pregunta:any) => pregunta.preguntaId != preguntaId);
           },
           (error) => {
             this.snack.open('Error al eliminar la pregunta','',{
@@ -81,58 +61,3 @@ export class ViewProductoInventariosComponent implements OnInit {
     })
   }
 }
-
-
-
-
-
-//   productoId:any;
-//   codigo:any;
-//   productos:any = [];
-
-//   constructor(private route:ActivatedRoute,private productosService:ProductosService,private snack:MatSnackBar) { }
-
-//   ngOnInit(): void {
-//     this.productoId = this.route.snapshot.params['productoId'];
-//     this.codigo = this.route.snapshot.params['codigo'];
-//     this.productosService.listarProductosDelInventario(this.productoId).subscribe(
-//       (data:any) => {
-//         console.log(data);
-//         this.productos = data;
-//       },
-//       (error) => {
-//         console.log(error);
-//       }
-//     )
-//   }
-
-//   eliminarProducto(preguntaId:any){
-//     Swal.fire({
-//       title:'Eliminar producto',
-//       text:'¿Estás seguro , quieres eliminar este producto?',
-//       icon:'warning',
-//       showCancelButton:true,
-//       confirmButtonColor:'#3085d6',
-//       cancelButtonColor:'#d33',
-//       confirmButtonText:'Eliminar',
-//       cancelButtonText:'Cancelar'
-//     }).then((resultado) => {
-//       if(resultado.isConfirmed){
-//         this.productosService.eliminarProducto(this.productoId).subscribe(
-//           (data) => {
-//             this.snack.open('Pregunta eliminada','',{
-//               duration:3000
-//             })
-//             this.productos = this.productos.filter((pregunta:any) => pregunta.preguntaId != preguntaId);
-//           },
-//           (error) => {
-//             this.snack.open('Error al eliminar el producto','',{
-//               duration:3000
-//             })
-//             console.log(error);
-//           }
-//         )
-//       }
-//     })
-//   }
-// }

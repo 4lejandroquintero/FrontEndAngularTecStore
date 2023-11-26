@@ -5,12 +5,12 @@
         <mat-card class="mt20">
           <mat-card-header>
             <mat-card-title>
-              Lea las instrucciones de esta página cuidadosamente
+              Lea las instrucciones de su compra
             </mat-card-title>
           </mat-card-header>
-          <mat-card-subtitle>Un paso más para ir</mat-card-subtitle>
+          <mat-card-subtitle>Ya estamos cerca</mat-card-subtitle>
           <mat-card-content class="ml30">
-            <h1>{{ producto.titulo }}</h1>
+            <h1>{{ producto.codigo }}</h1>
             <p>{{ producto.descripcion }}</p>
             <mat-divider></mat-divider>
           <br>
@@ -18,9 +18,9 @@
 
           <ul>
             <li>Este cuestionario es solo para fines de práctica</li>
-            <li>Tienes que enviar el cuestionario en <b>{{ producto.numeroDePreguntas * 2 }} minutos</b></li>
+            <li>Tienes que enviar el cuestionario en <b>{{ producto.existencia * 2 }} minutos</b></li>
             <li>Puede intentar el cuestionario cualquier cantidad de veces</li>
-            <li>Hay <b>{{ producto.puntosMaximos/producto.numeroDePreguntas }} puntos por pregunta</b></li>
+            <li>Hay <b>{{ producto.existencia/producto.precio }} puntos por pregunta</b></li>
           </ul>
           <mat-divider></mat-divider>
           <br>
@@ -36,7 +36,7 @@
         </mat-card-content>
         <mat-card-actions class="text-center mb20">
           <button (click) = "verProducto()" mat-raised-button color="primary">
-            Comenzar prueba
+            Realizar compra
           </button>
         </mat-card-actions>
         </mat-card>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
-import { ProductosService } from 'src/app/services/productos.service';
+import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -28,7 +28,7 @@ export class AddProductoComponent implements OnInit {
   constructor(
     private categoriaService:CategoriaService,
     private snack:MatSnackBar,
-    private productosService:ProductosService,
+    private productosService:ProductoService,
     private router:Router) { }
 
   ngOnInit(): void {

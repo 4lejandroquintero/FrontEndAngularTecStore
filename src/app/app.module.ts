@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -43,9 +44,12 @@ import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones
 import { LoadProductoComponent } from './pages/user/load-producto/load-producto.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
-
-
-
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { TokenComponent } from './pages/token/token.component';
+import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/actualizar-producto.component';
+import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
+import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -74,7 +78,12 @@ import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.com
     LoadProductoComponent,
     StartComponent,
     UserSidebar,
-    WelcomeUserComponent
+    WelcomeUserComponent,
+    RecoverPasswordComponent,
+    TokenComponent,
+    ActualizarProductoComponent,
+    ActualizarPreguntaComponent,
+    AddPreguntaComponent
   ],
   imports: [
     BrowserModule,
@@ -89,10 +98,10 @@ import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.com
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule,
     MatListModule,
+    MatSlideToggleModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatProgressSpinnerModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -67,4 +67,8 @@ export class LoginService {
     return user.authorities[0].authority;
   }
 
+  public sendEmailTemplate(){
+    
+  }
+
 }

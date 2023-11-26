@@ -1,3 +1,4 @@
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { NormalGuard } from './services/normal.guard';
 import { AdminGuard } from './services/admin.guard';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
@@ -23,6 +24,10 @@ import { StartComponent } from './pages/user/start/start.component';
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 import { LoadProductoComponent } from './pages/user/load-producto/load-producto.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
+import { TokenComponent } from './pages/token/token.component';
+import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/actualizar-producto.component';
+import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
+import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 
 const routes: Routes = [
   {
@@ -42,6 +47,8 @@ const routes: Routes = [
   },
   {path: 'comprar-producto/:id', component: ComprarProductoComponent},
   {path: 'buscar-producto/:descripcion', component: BuscarProductoComponent},
+  {path: 'recover-password', component: RecoverPasswordComponent},
+  {path: 'token', component: TokenComponent},
   {path: 'admin',
   component:DashboardComponent,
   canActivate:[AdminGuard],
@@ -71,12 +78,24 @@ const routes: Routes = [
       component:AddProductoComponent
     },
     {
-      path:'editar-producto/:id',
-      component: EditarProductoComponent
+      path:'producto/:productoId',
+      component: ActualizarProductoComponent
+    },
+    {
+      path:'ver-preguntas/:productoId/:codigo',
+      component:ViewProductoInventariosComponent
     },
     {
       path:'ver-productos/:productoId/:codigo',
       component:ViewProductoInventariosComponent
+    },
+    {
+      path:'add-pregunta/:productoId/:codigo',
+      component:AddPreguntaComponent
+    },
+    {
+      path:'pregunta/:preguntaId',
+      component:ActualizarPreguntaComponent
     },
     {
       path:'productos-lista',
@@ -92,6 +111,10 @@ const routes: Routes = [
       {
         path:'profile',
         component:ProfileComponent
+      },
+      {
+        path:':catId',
+        component:LoadProductoComponent
       },
       {
         path:'',
