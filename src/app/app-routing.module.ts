@@ -1,4 +1,3 @@
-import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { NormalGuard } from './services/normal.guard';
 import { AdminGuard } from './services/admin.guard';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
@@ -44,7 +43,6 @@ const routes: Routes = [
     component : LoginComponent,
     pathMatch : 'full'
   },
-  {path: 'recover-password', component: RecoverPasswordComponent},
   {path: 'token', component: TokenComponent},
 
 

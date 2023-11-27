@@ -24,7 +24,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { SidebarComponent as UserSidebar} from './pages/user/sidebar/sidebar.component';
 import { MatListModule } from '@angular/material/list';
-import { authInterceptorProviders } from './services/auth.interceptor';
+import { authInterceptorProviders } from './models/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { ProductoListaComponent } from './pages/admin/producto-lista/producto-lista.component';
@@ -40,7 +40,6 @@ import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones
 import { LoadProductoComponent } from './pages/user/load-producto/load-producto.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
-import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { TokenComponent } from './pages/token/token.component';
 import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/actualizar-producto.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
@@ -76,7 +75,6 @@ import { CarritoComponent } from './pages/user/carrito/carrito.component';
     StartComponent,
     UserSidebar,
     WelcomeUserComponent,
-    RecoverPasswordComponent,
     TokenComponent,
     ActualizarProductoComponent,
     ActualizarPreguntaComponent,
