@@ -26,25 +26,16 @@ import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/a
 import { ComprarProductoComponent } from './pages/user/comprar-producto/comprar-producto.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { CarritoComponent } from './pages/user/carrito/carrito.component';
+import { SendEmailComponent } from './changepassword/send-email.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 const routes: Routes = [
-  {
-    path : '',
-    component : HomeComponent,
-    pathMatch : 'full'
-  },
-  {
-    path : 'signup',
-    component : SignupComponent,
-    pathMatch : 'full'
-  },
-  {
-    path : 'login',
-    component : LoginComponent,
-    pathMatch : 'full'
-  },
+  {path : '', component : HomeComponent, pathMatch : 'full'},
+  {path : 'signup', component : SignupComponent, pathMatch : 'full'},
+  {path : 'login', component : LoginComponent, pathMatch : 'full'},
+  {path : 'sendemail', component : SendEmailComponent, pathMatch : 'full'},
+  {path : 'changepassword/:tokenPassword', component : ChangePasswordComponent, pathMatch : 'full'},
   {path: 'token', component: TokenComponent},
-
 
   {path: 'admin',
   component:DashboardComponent,

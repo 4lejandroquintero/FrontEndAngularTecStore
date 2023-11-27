@@ -51,6 +51,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { CarritoComponent } from './pages/user/carrito/carrito.component';
+import { SendEmailComponent } from './changepassword/send-email.component';
+import { ChangePasswordComponent } from './changepassword/change-password.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { CarritoComponent } from './pages/user/carrito/carrito.component';
     ComprarProductoComponent,
     DialogComponent,
     NosotrosComponent,
-    CarritoComponent
+    CarritoComponent,
+    SendEmailComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
