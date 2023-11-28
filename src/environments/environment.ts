@@ -3,11 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  productoURL: 'http://localhost:8080/producto/',
-  authURL: 'http://localhost:8080/',
-  changePasswordURL: 'http://localhost:8080/email-password/'
+
+  production:false
+
 };
+
+// Initialize Firebase
+
 
 /*
  * For easier debugging in development mode, you can import the following file

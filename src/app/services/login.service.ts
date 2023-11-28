@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import baserUrl from '../models/helper';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,7 @@ export class LoginService {
 
   public loginStatusSubjec = new Subject<boolean>();
 
-  constructor(private http:HttpClient,
-    public afAuth: AngularFireAuth) { }
+  constructor(private http:HttpClient) { }
 
   //generamos el token
   public generateToken(loginData:any){
