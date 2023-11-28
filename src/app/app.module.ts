@@ -40,7 +40,6 @@ import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones
 import { LoadProductoComponent } from './pages/user/load-producto/load-producto.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
-import { TokenComponent } from './pages/token/token.component';
 import { ActualizarProductoComponent } from './pages/admin/actualizar-producto/actualizar-producto.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
@@ -77,16 +76,15 @@ import { ChangePasswordComponent } from './changepassword/change-password.compon
     StartComponent,
     UserSidebar,
     WelcomeUserComponent,
-    TokenComponent,
     ActualizarProductoComponent,
-    ActualizarPreguntaComponent,
     AddPreguntaComponent,
     ComprarProductoComponent,
     DialogComponent,
     NosotrosComponent,
     CarritoComponent,
-    SendEmailComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ActualizarPreguntaComponent,
+    SendEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +103,8 @@ import { ChangePasswordComponent } from './changepassword/change-password.compon
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

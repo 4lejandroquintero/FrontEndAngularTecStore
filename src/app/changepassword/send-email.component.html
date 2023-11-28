@@ -15,14 +15,14 @@
           </ul>
       </div>
       <div class="card-body">
-          <form  #f="ngForm" (ngSubmit)="onSendRemail()" novalidate>
+          <form novalidate>
               <div class="form-group text-center">
-                  <label class="text-info">Te enviaremos un correo para recuperar la contraseña</label>
-                  <input type="text" name="mailTo" id="mailTo" class="form-control" [(ngModel)]="mailTo" placeholder="Nombre de Usuario o Email" required>
+                  <label class="text-info mt-5">Te enviaremos un correo para recuperar la contraseña</label>
+                  <input type="text" name="mailTo" id="mailTo" class="form-control" placeholder="Nombre de Usuario o Email" required>
               </div>
 
               <div class="form-group">
-                  <button class="btn btn-outline-success btn-block"  type="submit">
+                  <button class="btn btn-outline-success btn-block"  (click)="onReset">
                       <i class="fas fa-sign-in-alt"></i> Enviar Correo</button>
               </div>
           </form>

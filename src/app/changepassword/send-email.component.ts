@@ -1,5 +1,6 @@
-import { OnInit } from '@angular/core';
-import { EmailPasswordService } from './../services/email-password.service';
+import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-send-email',
@@ -8,11 +9,20 @@ import { EmailPasswordService } from './../services/email-password.service';
 })
 export class SendEmailComponent implements OnInit {
 
+mailTo!: string
+
+
   constructor(
-    private emailPasswordService: EmailPasswordService,
+    private snack:MatSnackBar
   ) { }
+
 
   ngOnInit(): void {
   }
+
+  onReset(){
+    
+  }
+
 
 }
