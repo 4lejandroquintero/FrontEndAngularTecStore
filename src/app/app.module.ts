@@ -52,8 +52,7 @@ import { ChangePasswordComponent } from './changepassword/change-password.compon
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { initializeApp } from "firebase/app";
 
 @NgModule({
   declarations: [
@@ -107,9 +106,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatMenuModule,
-    BrowserModule
+    BrowserModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function provideFirebaseApp(arg0: () => import("firebase/app").app.App): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+

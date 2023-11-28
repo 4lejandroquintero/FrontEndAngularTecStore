@@ -4,7 +4,16 @@
 
 export const environment = {
 
-  production:false
+  production:false,
+   firebase :{
+    apiKey: "AIzaSyB0TRqI7hKdySkN4u9qnF51TclPWq2UgqA",
+    authDomain: "tecstore-f5b83.firebaseapp.com",
+    projectId: "tecstore-f5b83",
+    storageBucket: "tecstore-f5b83.appspot.com",
+    messagingSenderId: "984458906791",
+    appId: "1:984458906791:web:dbb7433cba390806e3df82",
+    measurementId: "G-XH7NNB39JM"
+  }
 
 };
 
