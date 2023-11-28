@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <a
     [routerLink]="'/'"
     mat-icon-button
@@ -7,7 +7,7 @@
   >
     <mat-icon>home</mat-icon>
   </a>
-  <span>TS</span>
+  <span>TecStore</span>
   <span class="example-spacer"></span>
 
   <a
@@ -44,16 +44,19 @@
   <mat-icon mat-list-icon>account_circle</mat-icon>
     Mi Cuenta
   </a>
+
   <a
     *ngIf = "!isLoggedIn"
     [routerLink]="'/signup'"
     mat-icon-button
-    class="example-icon favorite-icon mr20 ml70"
+    class="example-icon favorite-icon mr20 ml70 "
+    style="margin-right: 50px"
     aria-label="Example icon-button with heart icon"
   >
   <mat-icon mat-list-icon>app_registration</mat-icon>
     SignUp
   </a>
+
   <a
     *ngIf = "isLoggedIn"
     (click) = "logout()"
