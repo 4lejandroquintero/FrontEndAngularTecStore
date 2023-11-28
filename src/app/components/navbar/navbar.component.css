@@ -10,3 +10,7 @@
   width: 400px; /* Ajusta el color de fondo según sea necesario */
 }
 
+mat-toolbar{
+  background-color: #82d5f7;
+}
+
