@@ -106,8 +106,7 @@ import { initializeApp } from "firebase/app";
     MatProgressSpinnerModule,
     MatDialogModule,
     MatMenuModule,
-    BrowserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase))
+    BrowserModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
