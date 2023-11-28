@@ -10,8 +10,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  contadorClicks: number = 0;
-
   loginData = {
     "username" : '',
     "password" : '',
@@ -19,12 +17,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private snack:MatSnackBar,private loginService:LoginService,private router:Router) { }
 
-
   ngOnInit(): void {
   }
 
   formSubmit(){
-
     if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
       this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
         duration:3000
@@ -38,7 +34,6 @@ export class LoginComponent implements OnInit {
       })
       return;
     }
-
 
     this.loginService.generateToken(this.loginData).subscribe(
       (data:any) => {
@@ -71,17 +66,5 @@ export class LoginComponent implements OnInit {
         })
       }
     )
-  }
-
-  incrementadorContador(): void {
-    this.contadorClicks++;
-    if(this.contadorClicks===3){
-      this.loginData.password="9639"
-    this.snack.open('Ups .. cuenta bloqueada por intentos fallidos !!','Aceptar',{
-      duration:3000
-    });
-    this.contadorClicks=0;
-
-    }
   }
 }
