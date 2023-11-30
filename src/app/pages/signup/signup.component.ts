@@ -79,7 +79,7 @@ export class SignupComponent implements OnInit {
 
  if(this.user.admin) {
   let claveIngresada = window.prompt("Ingrese la clave de confirmación:");
-  if(claveIngresada === "12345"){
+  if(claveIngresada === "*****"){
     Swal.fire('ADMINISTRADOR','Usuario registrado como administrador con exito en el sistema','success');
   }else {
     this.snack.open('No tiene permitido registrar como ADMIN !!','Aceptar',{

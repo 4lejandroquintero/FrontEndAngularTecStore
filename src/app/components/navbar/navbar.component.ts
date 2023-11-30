@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
   }
 
   Buscar() {
-    if(this.user.username != "quintero68")
+    if(this.login.getUserRole() != 'ADMIN')
     this.categoriaService.listarCategorias().subscribe(
       (dato:any) => {
         this.categoria = dato;
