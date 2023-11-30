@@ -1,7 +1,9 @@
 import { PreguntaService } from './../../../services/pregunta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ProductoService } from 'src/app/services/producto.service';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-add-pregunta',
@@ -12,7 +14,6 @@ export class AddPreguntaComponent implements OnInit {
 
   productoId:any;
   codigo:any;
-  descripcion:any;
   pregunta:any = {
     producto : {},
     contenido : '',
@@ -55,7 +56,7 @@ export class AddPreguntaComponent implements OnInit {
 
     this.preguntaService.guardarPregunta(this.pregunta).subscribe(
       (data) => {
-        Swal.fire('Pregunta guardada','La pregunta ha sido agregada con éxito','success');
+        Swal.fire('Ficha guardada','La dicha ha sido agregada con éxito','success');
         this.pregunta.contenido = '';
         this.pregunta.opcion1 = '';
         this.pregunta.opcion2 = '';
@@ -63,7 +64,7 @@ export class AddPreguntaComponent implements OnInit {
         this.pregunta.opcion4 = '';
         this.pregunta.respuesta = '';
       },(error) => {
-        Swal.fire('Error','Error al guardar la pregunta en la base de datos','error');
+        Swal.fire('Error','Error al guardar la ficha en la base de datos','error');
         console.log(error);
       }
     )

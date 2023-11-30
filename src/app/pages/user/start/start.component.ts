@@ -1,6 +1,7 @@
 import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { PreguntaService } from 'src/app/services/pregunta.service';
 import { ProductoService } from 'src/app/services/producto.service';
 import Swal from 'sweetalert2';
@@ -13,6 +14,8 @@ import Swal from 'sweetalert2';
 export class StartComponent implements OnInit {
 
   productoId:any;
+  codigo:any;
+  descripcion:any;
   preguntas:any;
   puntosConseguidos = 0;
   respuestasCorrectas = 0;
@@ -26,7 +29,8 @@ export class StartComponent implements OnInit {
     private locationSt:LocationStrategy,
     private route:ActivatedRoute,
     private preguntaService:PreguntaService,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private categoriaService: CategoriaService
   ) { }
 
   ngOnInit(): void {
@@ -47,8 +51,8 @@ export class StartComponent implements OnInit {
         this.preguntas.forEach((p:any) => {
           p['respuestaDada'] = '';
         })
-        console.log(this.preguntas);
-        this.iniciarTemporizador();
+        // console.log(this.preguntas);
+        // this.iniciarTemporizador();
       },
       (error) => {
         console.log(error);
@@ -58,16 +62,16 @@ export class StartComponent implements OnInit {
   }
 
 
-  iniciarTemporizador(){
-    let t = window.setInterval(() => {
-      if(this.timer <= 0){
-        this.evaluarProducto();
-        clearInterval(t);
-      }else{
-        this.timer --;
-      }
-    },1000)
-  }
+  // iniciarTemporizador(){
+  //   let t = window.setInterval(() => {
+  //     if(this.timer <= 0){
+  //       this.evaluarProducto();
+  //       clearInterval(t);
+  //     }else{
+  //       this.timer --;
+  //     }
+  //   },1000)
+  // }
 
   prevenirElBotonDeRetroceso(){
     history.pushState(null,null!,location.href);
@@ -94,8 +98,8 @@ export class StartComponent implements OnInit {
     this.preguntaService.evaluarProducto(this.preguntas).subscribe(
       (data:any) => {
         console.log(data);
-        this.puntosConseguidos = 5;
-        this.respuestasCorrectas = 4;
+        this.puntosConseguidos = this.productoId;
+        this.respuestasCorrectas = this.descripcion;
         this.intentos = data.intentos;
         this.esEnviado = true;
       },
