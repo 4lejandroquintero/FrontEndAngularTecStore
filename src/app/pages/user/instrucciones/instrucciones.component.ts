@@ -47,4 +47,8 @@ export class InstruccionesComponent implements OnInit {
     })
   }
 
+  imprimirPagina(){
+    window.print();
+  }
+
 }

@@ -4,39 +4,50 @@
       <div class="col-md-12">
         <mat-card class="mt20">
           <mat-card-header>
-            <mat-card-title>
-              Lea las instrucciones de su compra
+            <mat-card-title >
+              TIENDA MINORISTA TECSTORE ---- FACTURA DE VENTA
             </mat-card-title>
           </mat-card-header>
-          <mat-card-subtitle>Ya estamos cerca</mat-card-subtitle>
+          <mat-card-subtitle style="text-align: center;">No somo responsables de IVA</mat-card-subtitle>
           <mat-card-content class="ml30">
-            <h1>{{ producto.codigo }}</h1>
-            <p>{{ producto.descripcion }}</p>
+            <h1>Codigo del Producto :           {{ producto.codigo }}</h1>
+            <h2>Descripción del Producto :{{ producto.descripcion }}</h2>
+            <h3>Valor por unidad: {{ producto.precio | currency }}</h3>
+            <br>
+            <h2>CANTIDAD  : <b>{{producto.existencia }}</b></h2>
             <mat-divider></mat-divider>
           <br>
           <h1>Instrucciones importantes</h1>
 
           <ul>
+            <h1><b>La compra se hará siempre por el valor en inventario</b></h1>
             <li>Recuerde estar seguro de su compra</li>
             <li>Le informamos que una vez hecha su compra, el sistema tarda <b>{{ producto.existencia * 2 }} minutos</b> en reflejarnos su compra</li>
             <li>Toda compra tiene garantía y se genera factura</li>
             <li>Por tu compra te daremos un bono de <b>{{ producto.existencia+producto.precio/100 | currency }} para redimir en nuestra tienda</b></li>
+
           </ul>
           <mat-divider></mat-divider>
           <br>
           <h1>Compras TECSTORE</h1>
           <ul>
-            <li>Presione el boton <b>COMPRAR</b> para iniciar su compra</li>
-            <li>En ese instante empezará su compra</li>
+            <li>Puede imprimir este <b>DOCUMENTO</b> como Factura de Venta</li>
             <li>Por favor no se salga hasta no estar seguro de su compra</li>
-            <li>Haga clic en el botón <b>LISTO</b> para realizar tu compra</li>
-            <li>El informe de la compra se genera automáticamente en forma de copia PDF</li>
+            <br>
+
+            <h2>SUBTOTAL : <b>{{producto.precio*producto.existencia | currency }}</b></h2>
+            <h2>IVA : <b>{{(producto.precio*producto.existencia)*0.19 | currency }}</b></h2>
+            <h2>TOTAL : <b>{{((producto.precio*producto.existencia)*0.19) + producto.precio*producto.existencia| currency }}</b></h2>
           </ul>
         </mat-card-content>
         <mat-card-actions class="text-center mb20">
-          <button (click) = "empezarExamen()" mat-raised-button color="primary">
-            ¡¡IR!!
+           <button routerLink="/user-dashboard/0" mat-raised-button color="primary">
+            Volver
           </button>
+          <!-- <button (click) = "empezarExamen()" mat-raised-button color="primary">
+            ¡¡IR!!
+          </button> -->
+          <button (click) = "imprimirPagina()" mat-raised-button color="warn">FACTURA</button>
         </mat-card-actions>
         </mat-card>
       </div>
