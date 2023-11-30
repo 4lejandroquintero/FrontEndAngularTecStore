@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { SendEmailService } from '../services/send-email.service';
 
 @Component({
   selector: 'app-send-email',
@@ -9,20 +10,16 @@ import Swal from 'sweetalert2';
 })
 export class SendEmailComponent implements OnInit {
 
-mailTo!: string
+  opciones : string[] = ['primer bario','nombre de la mama','nombre primera mascota'];
+  preguntaSecr = [];
 
-
-  constructor(
-    private snack:MatSnackBar
-  ) { }
+  constructor() { }
 
 
   ngOnInit(): void {
   }
 
-  onReset(){
 
-  }
 
 
 }

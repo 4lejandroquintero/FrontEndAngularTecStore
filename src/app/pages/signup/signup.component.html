@@ -67,6 +67,20 @@
             <input required [(ngModel)] = "user.telefono" name = "telefono" matInput placeholder="Digite su telefono">
           </mat-form-field>
 
+          <mat-form-field class="full-width fw-bold"  appearance = "outline">
+            <mat-form-field>
+              <mat-label>Selecciona una opción</mat-label>
+              <mat-select required [(value)]="user.preguntaSecreta" name="preguntaSecreta">
+                <mat-option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-form-field>
+
+          <mat-form-field class="full-width fw-bold"  appearance = "outline">
+            <mat-label>Respuesta secreta</mat-label>
+            <input type="password" required [(ngModel)] = "user.respuestaSecreta" name = "telefono" matInput placeholder="Digite su respuesta secreta">
+          </mat-form-field>
+
           <mat-slide-toggle class="mt20 fw-bold" name = "admin" [(ngModel)] = "user.admin" color="#0b3046">
             Rol Usuario
           </mat-slide-toggle>

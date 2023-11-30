@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   user:any = null;
 
-  constructor(public login:LoginService, private ProductoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router, private categoriaService:CategoriaService, public dialog: MatDialog) { }
+  constructor(public login:LoginService, private ProductoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router, private categoriaService:CategoriaService, public dialog: MatDialog, loginServise: LoginService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
   }
 
   Buscar() {
+    if(this.user.username != "quintero68")
     this.categoriaService.listarCategorias().subscribe(
       (dato:any) => {
         this.categoria = dato;

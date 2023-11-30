@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  opciones : string[] = ['primer bario','nombre de la mama','nombre primera mascota'];
   public user = {
     username : '',
     tipousuario : '',
@@ -19,6 +20,8 @@ export class SignupComponent implements OnInit {
     email : '',
     telefono : '',
     admin : false,
+    preguntaSecreta: '',
+    respuestaSecreta : '',
   }
 
 
@@ -100,6 +103,8 @@ export class SignupComponent implements OnInit {
         this.user.email=('');
         this.user.telefono=('');
         this.user.admin=false;
+        this.user.preguntaSecreta=('');
+        this.user.respuestaSecreta=('');
       },(error) => {
         console.log(error);
         this.snack.open('Ha ocurrido un error en el sistema !!','Aceptar',{

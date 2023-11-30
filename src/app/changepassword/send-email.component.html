@@ -27,16 +27,34 @@
 
 
               <div class="form-group">
-                  
-                  <h1 class="py-2 my-2 fw-bold" style="color: black;">Te enviaremos un correo para recuperar la contraseña</h1>
-                  <input type="text" name="mailTo" id="mailTo" class="form-control fw-bold"
-                       placeholder="Nombre de Usuario o Email" required>
+
+                <mat-form-field class = "full-width fw-bold"  appearance = "outline">
+                  <mat-label>Nombre de usuario</mat-label>
+                  <input name = "username" required  matInput placeholder="Digite su nombre de usuario">
+                  <mat-hint>El nombre de usuario debe ser valido</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="full-width fw-bold"  appearance = "outline">
+
+                  <mat-form-field>
+                    <mat-label>Pregunta Secreta</mat-label>
+                    <mat-select required [(value)]="preguntaSecr" name="preguntaSecreta">
+                      <mat-option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </mat-form-field>
               </div>
 
-              <div class="form-group fw-bold py-2">
-                  <button class="btn btn-outline-info btn-block py-2 my-2 fw-normal"  type="submit" style="color: black;">
-                      <i class="fas fa-sign-in-alt py-3 my-5"></i> Enviar Correo</button>
-              </div>
+              <div class="form-group">
+
+                <input type="password" name="respuestaSecreta" id="respuestaSecreta" class="form-control fw-bold"
+                     placeholder="Respuesta Secreta" required>
+            </div>
+
+            <div class = "container text-center">
+              <button type = "submit" mat-raised-button color="primary"  >Iniciar sesión</button>
+              <button type="reset" style = "margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+            </div>
           </form>
       </div>
   </div>

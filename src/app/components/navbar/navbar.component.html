@@ -29,6 +29,7 @@
       <mat-option [routerLink] = "'/user-dashboard/'+c.categoriaId" *ngFor = "let c of categoria" [value] = "c.categoriaId">
         {{ c.codigo }}
       </mat-option>
+      
     </mat-select>
     <mat-icon  style="margin-left: 20px;" mat-list-icon>search</mat-icon>
   </mat-form-field>
@@ -77,6 +78,6 @@
   >
     {{ user.username }}
   </button>
-  
+
 
 </mat-toolbar>
